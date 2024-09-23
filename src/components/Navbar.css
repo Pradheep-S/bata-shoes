@@ -1,0 +1,109 @@
+/* Navbar.css */
+
+/* Basic Navbar Styling */
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 15px; /* Reduced padding for smaller height */
+  background-color: #333;
+  color: white;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+ 
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-left: 7px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.nav-item:hover {
+  color: #ff5a5f;
+}
+
+.active {
+  border-bottom: 2px solid  #ff5a5f;
+}
+
+/* Hamburger Menu Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger transform to X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px; /* Adjusted for smaller navbar */
+    right: 0;
+    width: 100%;
+    background-color: #333;
+    transition: height 0.3s ease;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+}
