@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <h2 className="logo">BATA Shoes</h2>
+      <h2 className="logo"> <pre></pre>BATA Shoes</h2>
       <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
         <ul className="nav-links">
           <li>
