@@ -59,8 +59,11 @@
   cursor: pointer;
   margin-right: 20px;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 101; /* Ensures it's above other elements */
 }
 
+/* Adjust spacing between bars */
 .hamburger span {
   width: 30px;
   height: 3px;
@@ -70,9 +73,9 @@
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Hamburger transform to X */
+/* Hamburger transform to X - Adjusted */
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
+  transform: rotate(45deg) translate(12px, 6px); /* Adjusted translation */
 }
 
 .hamburger.open span:nth-child(2) {
@@ -80,7 +83,7 @@
 }
 
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+  transform: rotate(-45deg) translate(12px, -6px); /* Adjusted translation */
 }
 
 /* Mobile Styling */
@@ -100,6 +103,7 @@
     transition: height 0.3s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     padding: 15px 0;
+    z-index: 100; /* Ensures menu is behind the hamburger */
   }
 
   .nav-menu.active {
