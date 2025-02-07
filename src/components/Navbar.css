@@ -64,27 +64,78 @@
 }
 
 /* Adjust spacing between bars */
+/* Base styles for the hamburger menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s ease-in-out;
+}
+
 .hamburger span {
-  width: 30px;
-  height: 3px;
+  width: 32px;
+  height: 4px;
   background-color: white;
-  margin: 5px 0;
-  border-radius: 3px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 6px 0;
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease-in-out;
 }
 
-/* Hamburger transform to X - Adjusted */
+/* Hamburger open animation - Rounded X effect with a jump */
+.hamburger.open {
+  transform: rotate(360deg) scale(1.1); /* Smooth circular rotation */
+}
+
+/* Top bar animation */
 .hamburger.open span:nth-child(1) {
-  transform: rotate(45deg) translate(12px, 6px); /* Adjusted translation */
+  transform: rotate(45deg) translate(16px, 6px);
+  animation: jump-top 0.4s ease-in-out forwards;
 }
 
+/* Middle bar animation (shrinks into a dot before disappearing) */
 .hamburger.open span:nth-child(2) {
   opacity: 0;
+  transform: scale(0.1);
+  animation: fade-middle 0.3s ease-in-out forwards;
 }
 
+/* Bottom bar animation */
 .hamburger.open span:nth-child(3) {
-  transform: rotate(-45deg) translate(12px, -6px); /* Adjusted translation */
+  transform: rotate(-45deg) translate(16px, -6px);
+  animation: jump-bottom 0.4s ease-in-out forwards;
 }
+
+/* Closing animation (reversing everything smoothly) */
+.hamburger span:nth-child(1),
+.hamburger span:nth-child(3) {
+  transition: transform 0.5s ease-in-out, scale 0.3s ease-in-out;
+}
+
+.hamburger span:nth-child(2) {
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Jumping animation */
+@keyframes jump-top {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(10deg); }
+  100% { transform: rotate(45deg) translate(16px, 6px); }
+}
+
+@keyframes jump-bottom {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(5px) rotate(-10deg); }
+  100% { transform: rotate(-45deg) translate(16px, -6px); }
+}
+
+/* Middle bar fade animation */
+@keyframes fade-middle {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.5); opacity: 0.7; }
+  100% { transform: scale(0.1); opacity: 0; }
+}
+
 
 /* Mobile Styling */
 @media (max-width: 768px) {
