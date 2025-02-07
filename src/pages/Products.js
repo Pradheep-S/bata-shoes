@@ -111,15 +111,15 @@ function Products() {
         ))}
       </div>
 
-      {/* Footer Section */}
+{/* Footer Section */}
       <footer className="footer mt-5">
         <div className="container">
           <div className="row">
             <div className="col-md-3">
               <h5>About BATA</h5>
               <p>
-                Established in 1894, BATA has been a pioneer in the footwear industry for over a century,
-                known for comfort and style. Our shoes are loved worldwide.
+                Established in 1894, BATA has been a pioneer in the footwear industry for over a century, known for
+                comfort and style. Our shoes are loved worldwide.
               </p>
             </div>
             <div className="col-md-3">

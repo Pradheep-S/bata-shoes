@@ -13,7 +13,7 @@ function Contact() {
         <div className="row">
           {/* Contact Form */}
           <div className="col-md-6">
-            <h3>Send Us a Message</h3>
+            <h3 className='sendmsg'>Send Us a Message</h3>
             <form className="contact-form">
               <div className="form-group">
                 <label htmlFor="name">Full Name</label>
